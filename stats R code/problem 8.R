@@ -1,0 +1,11 @@
+
+myData=read.table("flicker.txt", header=TRUE)
+levels(myData$Colour)
+attach(myData)
+boxplot(Flicker~ Colour, ylab="Flicker")
+stripchart(Flicker~ Colour, vertical=TRUE)
+tempFunction = function(x) c(mean=mean(x), sd=sd(x)) 
+myFit= oneway.test(Flicker ~ Colour, var.equal=TRUE)
+plot(myFit$fit, myFit$res);abline(h=0)
+qqnorm(myFit$res)
+qqline(myFit$res)

@@ -1,0 +1,12 @@
+meany=c(3.78,3.3,3.32,3.23,2.73,2.59)
+sdy=c(.79,.77,.86,.78,.81,.82)
+N=c(200,200,50,200,200,200)
+df=sum(N)-length(meany)
+BSS=sum(N*meany^2)
+WSS=(sum((N-1)*sdy^2))
+BMS=BSS/(length(meany)-1)
+WMS=WSS/df
+sigma=sqrt(WMS)
+deltay=meany[3]-meany[4]
+tval=deltay/(sigma*sqrt(1/N[3]+1/N[4]))
+prob=2*(1-pt(tval,df))
